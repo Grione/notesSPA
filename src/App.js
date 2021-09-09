@@ -24,11 +24,11 @@ const App = () => {
 			text: 'Another one text',
 			tags: []
 		},
-    {
+		{
 			id: 4,
 			title: 'Dostoevskii. Demons',
 			text: 'Perfect book about revolutions ideas',
-			tags: ['books', 'russian']
+			tags: [ 'books', 'russian' ]
 		}
 	]);
 
@@ -66,19 +66,21 @@ const App = () => {
 	};
 
 	const filteredNotes = notes.filter((note) => {
-    return !tags || note.tags.includes(tags)
-  });
+		return !tags || note.tags.includes(tags);
+	});
 
 	return (
-		<div className="container is-fluid">
-			<div className="columns has-text-light">
-				<div className="column has-background-dark">
-					<AddNoteButton onAdd={() => setShowAddNote(!showAddNote)} isDisabled={showAddNote} />
-					<TagsList tags={getAllTags(notes)} onSort={sortNotes} />
-				</div>
-				<div className="column has-background-dark is-three-quarters">
-					{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
-					<NotesList notes={filteredNotes} onDelete={deleteNote} />
+		<div className="wrapper has-background-dark">
+			<div className="container is-fluid">
+				<div className="columns has-text-light">
+					<div className="column has-background-dark">
+						<AddNoteButton onAdd={() => setShowAddNote(!showAddNote)} isDisabled={showAddNote} />
+						<TagsList tags={getAllTags(notes)} onSort={sortNotes} />
+					</div>
+					<div className="column has-background-dark is-three-quarters">
+						{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
+						<NotesList notes={filteredNotes} onDelete={deleteNote} />
+					</div>
 				</div>
 			</div>
 		</div>
