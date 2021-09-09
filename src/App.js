@@ -23,10 +23,17 @@ const App = () => {
 			title: 'Third note',
 			text: 'Another one text',
 			tags: []
+		},
+    {
+			id: 4,
+			title: 'Dostoevskii. Demons',
+			text: 'Perfect book about revolutions ideas',
+			tags: ['books', 'russian']
 		}
 	]);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
+	const [ tags, setTags ] = useState('');
 
 	// Get all tags
 	const getAllTags = (notes) => {
@@ -38,12 +45,11 @@ const App = () => {
 		return newTags;
 	};
 
-
 	// Add note
 	const addNote = (task, tags) => {
 		const id = Math.floor(Math.random() * 10000) + 1;
-		const arr = tags.split(' ')
-    const newTags = [...new Set(arr)];
+		const arr = tags.split(' ');
+		const newTags = [ ...new Set(arr) ];
 		const newNote = { id, tags: newTags, ...task };
 
 		setNotes([ ...notes, newNote ]);
@@ -54,16 +60,25 @@ const App = () => {
 		setNotes(notes.filter((element) => element.id !== id));
 	};
 
+	//Sort notes
+	const sortNotes = (tag) => {
+		setTags(tag);
+	};
+
+	const filteredNotes = notes.filter((note) => {
+    return !tags || note.tags.includes(tags)
+  });
+
 	return (
 		<div className="container is-fluid">
 			<div className="columns has-text-light">
 				<div className="column has-background-dark">
 					<AddNoteButton onAdd={() => setShowAddNote(!showAddNote)} isDisabled={showAddNote} />
-          <TagsList tags={getAllTags(notes)}/>
+					<TagsList tags={getAllTags(notes)} onSort={sortNotes} />
 				</div>
 				<div className="column has-background-dark is-three-quarters">
 					{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
-					<NotesList notes={notes} onDelete={deleteNote} />
+					<NotesList notes={filteredNotes} onDelete={deleteNote} />
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
-const TagsList = ({ tags }) => {
+const TagsList = ({ tags, onSort }) => {
 	return (
 		<div className="tags">
 			{tags.map((tag) => {
-				return <span className="tag" key={tag}>{tag}</span>;
+				return <span className="tag" key={tag} onClick={()=> onSort(tag)}>{tag}</span>;
 			})}
 		</div>
 	);

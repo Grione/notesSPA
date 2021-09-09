@@ -5,7 +5,14 @@ const NotesList = ({ notes, onDelete }) => {
 		<div className="block">
 			{notes.map((it, index) => {
 				return (
-					<Note key={it.id.toString()} title={it.title} text={it.text} tags={it.tags} id={it.id} onDelete={onDelete} />
+					<Note
+						key={it.id.toString()}
+						title={it.title}
+						text={it.text}
+						tags={it.tags}
+						id={it.id}
+						onDelete={onDelete}
+					/>
 				);
 			})}
 		</div>
