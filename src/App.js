@@ -42,15 +42,18 @@ const App = () => {
 			return note.tags.forEach((it) => newTags.add(it));
 		});
 
-		return [...newTags];
+		return [ ...newTags ];
 	};
 
 	// Add note
-	const addNote = (task, tags) => {
+	const addNote = (note, tags) => {
 		const id = Math.floor(Math.random() * 10000) + 1;
-		const arr = tags.split(' ');
-		const newTags = [ ...new Set(arr) ];
-		const newNote = { id, tags: newTags, ...task };
+		let newTags = [];
+		if (tags !== '') {
+			newTags = [ ...new Set(tags.split(' ')) ];
+		}
+
+		const newNote = { id, tags: newTags, ...note };
 
 		setNotes([ ...notes, newNote ]);
 	};
@@ -62,12 +65,11 @@ const App = () => {
 
 	//Sort notes
 	const sortNotes = (checked, value) => {
-
 		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
 	};
 
 	const filteredNotes = notes.filter((note) => {
-		return !tags.length || tags.find((item)=> note.tags.includes(item))
+		return !tags.length || tags.find((item) => note.tags.includes(item));
 	});
 
 	return (
