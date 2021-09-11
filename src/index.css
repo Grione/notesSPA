@@ -21,3 +21,14 @@ code {
   padding: 20px 0;
   min-height: 100vh;
 }
+
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
