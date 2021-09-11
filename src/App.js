@@ -28,7 +28,7 @@ const App = () => {
 			id: 4,
 			title: 'Dostoevskii. Demons',
 			text: 'Perfect book about revolutions ideas',
-			tags: [ 'russian' ]
+			tags: [ 'russian', 'books' ]
 		}
 	]);
 
@@ -37,12 +37,12 @@ const App = () => {
 
 	// Get all tags
 	const getAllTags = (notes) => {
-		const newTags = [];
+		const newTags = new Set();
 		notes.map((note) => {
-			return note.tags.forEach((it) => newTags.push(it));
+			return note.tags.forEach((it) => newTags.add(it));
 		});
 
-		return newTags;
+		return [...newTags];
 	};
 
 	// Add note
