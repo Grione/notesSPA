@@ -1,8 +1,10 @@
+import TagSingle from '../tag-single/tag-single';
+
 const TagsList = ({ tags, onSort }) => {
 	return (
 		<div className="tags mt-5">
 			{tags.map((tag) => {
-				return <span className="tag" key={tag} onClick={()=> onSort(tag)}>{tag}</span>;
+				return <TagSingle tag={tag} key={tag} onSort={onSort}/>;
 			})}
 		</div>
 	);

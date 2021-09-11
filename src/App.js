@@ -28,12 +28,12 @@ const App = () => {
 			id: 4,
 			title: 'Dostoevskii. Demons',
 			text: 'Perfect book about revolutions ideas',
-			tags: [ 'books', 'russian' ]
+			tags: [ 'russian' ]
 		}
 	]);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
-	const [ tags, setTags ] = useState('');
+	const [ tags, setTags ] = useState([]);
 
 	// Get all tags
 	const getAllTags = (notes) => {
@@ -61,12 +61,13 @@ const App = () => {
 	};
 
 	//Sort notes
-	const sortNotes = (tag) => {
-		setTags(tag);
+	const sortNotes = (checked, value) => {
+
+		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
 	};
 
 	const filteredNotes = notes.filter((note) => {
-		return !tags || note.tags.includes(tags);
+		return !tags.length || tags.find((item)=> note.tags.includes(item))
 	});
 
 	return (

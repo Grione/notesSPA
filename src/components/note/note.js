@@ -10,7 +10,7 @@ const Note = ({ id, title, text, tags, onDelete }) => {
 				<div className="tags">
 					{tags ? (
 						tags.map((element) => {
-							return <span className="tag">{element}</span>;
+							return <span className="tag" key={element}>{element}</span>;
 						})
 					) : (
 						''
