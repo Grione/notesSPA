@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
 
-const Note = ({ id, title, text, tags, onDelete }) => {
+const Note = ({ id, title, text, tags }) => {
 	const dispatch = useDispatch();
 	const { deleteNote } = bindActionCreators(actionCreators, dispatch);
 

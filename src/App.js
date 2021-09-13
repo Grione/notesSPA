@@ -61,11 +61,6 @@ const App = () => {
 		setNotes([ ...notes, newNote ]);
 	};
 
-	// Delete note
-	const deleteNote = (id) => {
-		setNotes(notes.filter((element) => element.id !== id));
-	};
-
 	//Sort notes
 	const sortNotes = (checked, value) => {
 		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
@@ -85,7 +80,7 @@ const App = () => {
 					</div>
 					<div className="column has-background-dark is-three-quarters">
 						{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
-						<NotesList notes={filteredNotes} onDelete={deleteNote} />
+						<NotesList notes={filteredNotes} />
 					</div>
 				</div>
 			</div>

@@ -1,9 +1,9 @@
 import Note from '../note/note';
 
-const NotesList = ({ notes, onDelete }) => {
+const NotesList = ({ notes }) => {
 	return (
 		<div className="block">
-			{notes.map((it, index) => {
+			{notes.map((it) => {
 				return (
 					<Note
 						key={it.id.toString()}
@@ -11,7 +11,6 @@ const NotesList = ({ notes, onDelete }) => {
 						text={it.text}
 						tags={it.tags}
 						id={it.id}
-						onDelete={onDelete}
 					/>
 				);
 			})}
