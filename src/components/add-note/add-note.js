@@ -1,6 +1,25 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../state';
 
-const AddNote = ({ onAdd, onHide }) => {
+const AddNote = ({ onHide }) => {
+	const dispatch = useDispatch();
+	const { addNote } = bindActionCreators(actionCreators, dispatch);
+
+	// Add note
+	const createNote = (note, tags) => {
+		const id = Math.floor(Math.random() * 10000) + 1;
+		let newTags = [];
+		if (tags !== '') {
+			newTags = [ ...new Set(tags.split(' ')) ];
+		}
+
+		const newNote = { id, tags: newTags, ...note };
+
+		addNote(newNote);
+	};
+
 	const [ title, setTitle ] = useState('');
 	const [ text, setText ] = useState('');
 	const [ tags, setTags ] = useState('');
@@ -14,7 +33,7 @@ const AddNote = ({ onAdd, onHide }) => {
 			return;
 		}
 
-		onAdd({ title, text }, tags);
+		createNote({ title, text }, tags);
 
 		setTitle('');
 		setText('');

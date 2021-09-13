@@ -6,33 +6,6 @@ import TagsList from './components/tags-ist/tags-list';
 import { useSelector } from 'react-redux';
 
 const App = () => {
-	const [ notes, setNotes ] = useState([
-		{
-			id: 1,
-			title: 'First note',
-			text: 'first text',
-			tags: [ 'movies', 'books', 'thoughts' ]
-		},
-		{
-			id: 2,
-			title: 'Second note',
-			text: 'Second text',
-			tags: [ 'goals' ]
-		},
-		{
-			id: 3,
-			title: 'Third note',
-			text: 'Another one text',
-			tags: []
-		},
-		{
-			id: 4,
-			title: 'Dostoevskii. Demons',
-			text: 'Perfect book about revolutions ideas',
-			tags: [ 'russian', 'books' ]
-		}
-	]);
-
 	const state = useSelector((state) => state.notes);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
@@ -46,19 +19,6 @@ const App = () => {
 		});
 
 		return [ ...newTags ];
-	};
-
-	// Add note
-	const addNote = (note, tags) => {
-		const id = Math.floor(Math.random() * 10000) + 1;
-		let newTags = [];
-		if (tags !== '') {
-			newTags = [ ...new Set(tags.split(' ')) ];
-		}
-
-		const newNote = { id, tags: newTags, ...note };
-
-		setNotes([ ...notes, newNote ]);
 	};
 
 	//Sort notes
@@ -79,7 +39,7 @@ const App = () => {
 						<TagsList tags={getAllTags(state)} onSort={sortNotes} />
 					</div>
 					<div className="column has-background-dark is-three-quarters">
-						{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
+						{showAddNote ? <AddNote onHide={() => setShowAddNote(false)} /> : ''}
 						<NotesList notes={filteredNotes} />
 					</div>
 				</div>
