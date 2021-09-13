@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import AddNoteButton from './components/add-note-button/add-note-button';
 import AddNote from './components/add-note/add-note';
 import NotesList from './components/notes-list/notes-list';
