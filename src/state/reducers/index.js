@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import accountReducer from './accountReducer';
+import notesReducer from './notesReducer';
 
 const reducers = combineReducers({
-	account: accountReducer
+	notes: notesReducer
 });
 
 export default reducers;
