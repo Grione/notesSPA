@@ -3,6 +3,7 @@ import AddNoteButton from './components/add-note-button/add-note-button';
 import AddNote from './components/add-note/add-note';
 import NotesList from './components/notes-list/notes-list';
 import TagsList from './components/tags-ist/tags-list';
+import { useSelector } from 'react-redux';
 
 const App = () => {
 	const [ notes, setNotes ] = useState([
@@ -31,6 +32,9 @@ const App = () => {
 			tags: [ 'russian', 'books' ]
 		}
 	]);
+
+	const state = useSelector((state) => state);
+  console.log(state);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
 	const [ tags, setTags ] = useState([]);
