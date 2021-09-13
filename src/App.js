@@ -33,8 +33,7 @@ const App = () => {
 		}
 	]);
 
-	const state = useSelector((state) => state);
-  console.log(state);
+	const state = useSelector((state) => state.notes);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
 	const [ tags, setTags ] = useState([]);
@@ -72,7 +71,7 @@ const App = () => {
 		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
 	};
 
-	const filteredNotes = notes.filter((note) => {
+	const filteredNotes = state.filter((note) => {
 		return !tags.length || tags.find((item) => note.tags.includes(item));
 	});
 
@@ -82,7 +81,7 @@ const App = () => {
 				<div className="columns has-text-light">
 					<div className="column has-background-dark">
 						<AddNoteButton onAdd={() => setShowAddNote(!showAddNote)} isDisabled={showAddNote} />
-						<TagsList tags={getAllTags(notes)} onSort={sortNotes} />
+						<TagsList tags={getAllTags(state)} onSort={sortNotes} />
 					</div>
 					<div className="column has-background-dark is-three-quarters">
 						{showAddNote ? <AddNote onAdd={addNote} onHide={() => setShowAddNote(false)} /> : ''}
