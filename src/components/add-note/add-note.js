@@ -12,7 +12,8 @@ const AddNote = ({ onHide }) => {
 		const id = Math.floor(Math.random() * 10000) + 1;
 		let newTags = [];
 		if (tags !== '') {
-			newTags = [ ...new Set(tags.split(' ')) ];
+			newTags = [ ...new Set(tags.split(' ')) ].filter((el)=> el !== ``);
+      console.log(newTags);
 		}
 
 		const newNote = { id, tags: newTags, ...note };
