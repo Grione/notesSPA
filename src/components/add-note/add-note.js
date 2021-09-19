@@ -45,6 +45,7 @@ const AddNote = ({ onHide }) => {
 
 	return (
 		<div className="box">
+      <button className="delete is-pulled-right" onClick={onHide} />
 			<form onSubmit={onSubmit}>
 				<div className="field">
 					<label className="label">Title</label>
