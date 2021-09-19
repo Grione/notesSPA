@@ -34,11 +34,11 @@ const App = () => {
 		<div className="wrapper has-background-dark">
 			<div className="container is-fluid">
 				<div className="columns has-text-light">
-					<div className="column has-background-dark">
+					<div className="wrapper-column column has-background-dark">
 						<AddNoteButton onAdd={() => setShowAddNote(!showAddNote)} isDisabled={showAddNote} />
 						<TagsList tags={getAllTags(state)} onSort={sortNotes} />
 					</div>
-					<div className="column has-background-dark is-three-quarters">
+					<div className="wrapper-column column has-background-dark is-three-quarters">
 						{showAddNote ? <AddNote onHide={() => setShowAddNote(false)} /> : ''}
 						<NotesList notes={filteredNotes} />
 					</div>

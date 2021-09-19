@@ -12,14 +12,14 @@ code {
     monospace;
 }
 
-.column {
-  border: 1px solid gray; 
-  border-radius: 3px;
-}
-
 .wrapper {
   padding: 20px 0;
   min-height: 100vh;
+}
+
+.wrapper-column{
+  border: 1px solid gray; 
+  border-radius: 3px;
 }
 
 .custom-checkbox {
