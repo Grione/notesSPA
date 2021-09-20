@@ -15,3 +15,12 @@ export const deleteNote = (id) => {
 		});
 	};
 };
+
+export const editNote = (id) => {
+	return (dispatch) => {
+		dispatch({
+			type: 'editNote',
+			payload: id
+		});
+	};
+};

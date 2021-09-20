@@ -4,21 +4,21 @@ const initialState = [
 		title: 'First note',
 		text: 'first text',
 		tags: [ 'movies', 'books', 'thoughts' ],
-    editing: true
+		editing: true
 	},
 	{
 		id: 2,
 		title: 'Second note',
 		text: 'Second text',
 		tags: [ 'goals' ],
-    editing: false
+		editing: false
 	},
-  {
+	{
 		id: 3,
 		title: 'Third note',
 		text: 'Another one text',
 		tags: [ 'goals', 'soccer', 'poker' ],
-    editing: false
+		editing: false
 	}
 ];
 
@@ -28,6 +28,13 @@ const reducer = (state = initialState, action) => {
 			return [ ...state, action.payload ];
 		case 'deleteNote':
 			return state.filter((element) => element.id !== action.payload);
+		case 'editNote':
+			return state.map((element) => {
+				if (element.id == action.payload) {
+					element.editing = !element.editing;
+				}
+				return element;
+			});
 		default:
 			return state;
 	}
