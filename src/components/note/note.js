@@ -1,3 +1,4 @@
+import DropdownNote from '../dropdown-note/dropdown-note';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,8 +11,14 @@ const Note = ({ id, title, text, tags }) => {
 	return (
 		<div className="box">
 			<div className="content">
-				<button className="delete is-pulled-right" onClick={() => deleteNote(id)} />
-				<h4>{title}</h4>
+				<div className="columns">
+					<div className="column">
+						<h4>{title}</h4>
+					</div>
+					<div className="column is-narrow">
+						<DropdownNote onDelete={deleteNote} id={id}/>
+					</div>
+				</div>
 				<p>{text}</p>
 				<div className="tags">
 					{tags ? (

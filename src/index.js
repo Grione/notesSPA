@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bulma/css/bulma.min.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
 
