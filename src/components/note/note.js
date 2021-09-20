@@ -6,7 +6,7 @@ import { actionCreators } from '../../state';
 
 const Note = ({ id, title, text, tags }) => {
 	const dispatch = useDispatch();
-	const { deleteNote } = bindActionCreators(actionCreators, dispatch);
+	const { deleteNote, editNote } = bindActionCreators(actionCreators, dispatch);
 
 	return (
 		<div className="box">
@@ -16,7 +16,7 @@ const Note = ({ id, title, text, tags }) => {
 						<h4>{title}</h4>
 					</div>
 					<div className="column is-narrow">
-						<DropdownNote onDelete={deleteNote} id={id}/>
+						<DropdownNote onDelete={deleteNote} onEdit={editNote} id={id}/>
 					</div>
 				</div>
 				<p>{text}</p>

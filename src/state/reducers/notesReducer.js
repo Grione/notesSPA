@@ -4,7 +4,7 @@ const initialState = [
 		title: 'First note',
 		text: 'first text',
 		tags: [ 'movies', 'books', 'thoughts' ],
-		editing: true
+		editing: false
 	},
 	{
 		id: 2,

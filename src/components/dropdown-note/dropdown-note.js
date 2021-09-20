@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const DropdownNote = ({ onDelete, id }) => {
+const DropdownNote = ({ onDelete, onEdit, id }) => {
 	const [ openDropdown, setOpenDropdown ] = useState(false);
 
 	return (
@@ -15,7 +15,7 @@ const DropdownNote = ({ onDelete, id }) => {
 			</div>
 			<div className="dropdown-menu" id="dropdown-menu" role="menu">
 				<div className="dropdown-content">
-					<a href="#" className="dropdown-item">
+					<a href="#" className="dropdown-item" onClick={() => onEdit(id)}>
 						Edit note
 					</a>
 					<a href="#" className="dropdown-item" onClick={() => onDelete(id)}>
