@@ -24,3 +24,12 @@ export const editNote = (id) => {
 		});
 	};
 };
+
+export const changeNote = (newNote) => {
+	return (dispatch) => {
+		dispatch({
+			type: 'changeNote',
+			payload: newNote
+		});
+	};
+};

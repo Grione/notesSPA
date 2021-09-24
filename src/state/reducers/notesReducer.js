@@ -35,6 +35,16 @@ const reducer = (state = initialState, action) => {
 				}
 				return element;
 			});
+    case 'changeNote':
+      return state.map((element)=> {
+        if (element.id === action.payload.id) {
+          element.title = action.payload.title;
+          element.text = action.payload.text;
+          element.tags = action.payload.tags;
+          element.editing = false;
+        }
+        return element
+      })  
 		default:
 			return state;
 	}
