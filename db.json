@@ -1,19 +1,25 @@
 {
-  "posts": [
+  "notes": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "First note",
+      "text": "first text",
+      "tags": [ "movies", "books", "thoughts" ],
+      "editing": false
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "title": "Second note",
+      "text": "Second text",
+      "tags": [ "goals" ],
+      "editing": false
+    },
+    {
+      "id": 3,
+      "title": "Third note",
+      "text": "Another one text",
+      "tags": [ "goals", "soccer", "poker" ],
+      "editing": false
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

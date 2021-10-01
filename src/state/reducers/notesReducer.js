@@ -1,26 +1,4 @@
-const initialState = [
-	{
-		id: 1,
-		title: 'First note',
-		text: 'first text',
-		tags: [ 'movies', 'books', 'thoughts' ],
-		editing: false
-	},
-	{
-		id: 2,
-		title: 'Second note',
-		text: 'Second text',
-		tags: [ 'goals' ],
-		editing: false
-	},
-	{
-		id: 3,
-		title: 'Third note',
-		text: 'Another one text',
-		tags: [ 'goals', 'soccer', 'poker' ],
-		editing: false
-	}
-];
+const initialState = [];
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
