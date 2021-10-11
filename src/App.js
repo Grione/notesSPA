@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddNoteButton from './components/add-note-button/add-note-button';
 import AddNote from './components/add-note/add-note';
 import NotesList from './components/notes-list/notes-list';
 import TagsList from './components/tags-ist/tags-list';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchNotes } from './state/action-creators';
 
 const App = () => {
 	const state = useSelector((state) => state.notes);
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchNotes());
+	}, []);
 
 	const [ showAddNote, setShowAddNote ] = useState(false);
 	const [ tags, setTags ] = useState([]);
@@ -14,21 +21,24 @@ const App = () => {
 	// Get all tags
 	const getAllTags = (notes) => {
 		const newTags = new Set();
-		notes.map((note) => {
-			return note.tags.forEach((it) => newTags.add(it));
-		});
+		if (notes.length) {
+			notes.map((it) => {
+				console.log(`it`, it);
+				return it.tags.forEach((it) => newTags.add(it));
+			});
+		}
 
 		return [ ...newTags ];
-	};
-
-	//Sort notes
-	const sortNotes = (checked, value) => {
-		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
 	};
 
 	const filteredNotes = state.filter((note) => {
 		return !tags.length || tags.find((item) => note.tags.includes(item));
 	});
+
+	//Sort notes
+	const sortNotes = (checked, value) => {
+		setTags(!tags.includes(value) && checked ? [ ...tags, value ] : tags.filter((n) => n !== value));
+	};
 
 	return (
 		<div className="wrapper has-background-dark">

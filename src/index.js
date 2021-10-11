@@ -7,6 +7,7 @@ import '../node_modules/bulma/css/bulma.min.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
+import { fetchNotes } from './state/action-creators';
 
 ReactDOM.render(
 	<React.StrictMode>

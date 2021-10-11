@@ -1,3 +1,14 @@
+export const fetchNotes = () => {
+	return async (dispatch) => {
+		fetch('http://localhost:5000/notes/').then((res) => res.json()).then((json) => {
+			dispatch({
+        type:'loadNotes',
+        payload: json
+      });
+		});
+	};
+};
+
 export const addNote = (note) => {
 	return (dispatch) => {
 		dispatch({
