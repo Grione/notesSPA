@@ -2,24 +2,40 @@
   "notes": [
     {
       "id": 1,
-      "title": "First note",
+      "title": "First notess",
       "text": "first text",
-      "tags": [ "movies", "books", "thoughts" ],
-      "editing": false
+      "tags": [
+        "movies",
+        "books",
+        "thoughts"
+      ]
     },
     {
       "id": 2,
       "title": "Second note",
       "text": "Second text",
-      "tags": [ "goals" ],
+      "tags": [
+        "goals"
+      ],
       "editing": false
     },
     {
-      "id": 3,
-      "title": "Third note",
-      "text": "Another one text",
-      "tags": [ "goals", "soccer", "poker" ],
-      "editing": false
+      "id": 7165,
+      "tags": [
+        "ffs",
+        "sd"
+      ],
+      "title": "sdfsdfsf",
+      "text": ""
+    },
+    {
+      "id": 8497,
+      "title": "ffff asd",
+      "text": "ffff",
+      "tags": [
+        "ee",
+        "2323"
+      ]
     }
   ]
 }

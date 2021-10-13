@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { fetchDelete } from '../../state/action-creators';
 
 const DropdownNote = ({ onDelete, onEdit, id }) => {
 	const [ openDropdown, setOpenDropdown ] = useState(false);
@@ -18,7 +19,14 @@ const DropdownNote = ({ onDelete, onEdit, id }) => {
 					<a href="#" className="dropdown-item" onClick={() => onEdit(id)}>
 						Edit note
 					</a>
-					<a href="#" className="dropdown-item" onClick={() => onDelete(id)}>
+					<a
+						href="#"
+						className="dropdown-item"
+						onClick={() => {
+							fetchDelete(id);
+              onDelete(id);
+						}}
+					>
 						Delete note
 					</a>
 				</div>

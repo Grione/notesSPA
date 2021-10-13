@@ -23,7 +23,6 @@ const App = () => {
 		const newTags = new Set();
 		if (notes.length) {
 			notes.map((it) => {
-				console.log(`it`, it);
 				return it.tags.forEach((it) => newTags.add(it));
 			});
 		}

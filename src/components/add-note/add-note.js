@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
+import { fetchAdd } from '../../state/action-creators';
 
 const AddNote = ({ onHide }) => {
 	const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const AddNote = ({ onHide }) => {
 		const newNote = { id, tags: newTags, ...note };
 
 		addNote(newNote);
+    fetchAdd(newNote);
 	};
 
 	const [ title, setTitle ] = useState('');
