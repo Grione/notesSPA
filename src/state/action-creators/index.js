@@ -1,40 +1,26 @@
+import api from '../../api';
+
 export const fetchNotes = () => {
 	return async (dispatch) => {
-		fetch('http://localhost:5000/notes/').then((res) => res.json()).then((json) => {
+		api.get(`/notes`).then((response) => {
 			dispatch({
 				type: 'loadNotes',
-				payload: json
+				payload: response.data
 			});
 		});
 	};
 };
 
 export const fetchChange = async (id, task) => {
-	await fetch(`http://localhost:5000/notes/${id}`, {
-		method: 'PUT',
-		headers: {
-			'Content-type': 'application/json'
-		},
-		body: JSON.stringify(task)
-	});
+	await api.put(`/notes/${id}`, task);
 };
 
 export const fetchDelete = async (id) => {
-	await fetch(`http://localhost:5000/notes/${id}`, {
-		method: 'DELETE'
-	});
+	await api.delete(`/notes/${id}`);
 };
 
 export const fetchAdd = async (note) => {
-	await fetch('http://localhost:5000/notes/', {
-		method: 'POST',
-		headers: {
-			'Content-type': 'application/json'
-		},
-		body: JSON.stringify(note)
-	});
-
-	//const data = res.json()
+	await api.post(`/notes/`, note);
 };
 
 export const addNote = (note) => {
