@@ -14,7 +14,6 @@ const TagSingle = ({ tag, onSort }) => {
 				value={tag}
 				onChange={(event) => {
 					setChecked(!checked);
-					console.log(checked);
 					onSort(event.target.checked, event.target.value);
 				}}
 			/>

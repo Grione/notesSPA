@@ -1,16 +1,6 @@
 {
   "notes": [
     {
-      "id": 1,
-      "title": "First notess",
-      "text": "first text",
-      "tags": [
-        "movies",
-        "books",
-        "thoughts"
-      ]
-    },
-    {
       "id": 3792,
       "tags": [
         "sldkf",
@@ -18,6 +8,23 @@
       ],
       "title": "new notr",
       "text": "sldkfj "
+    },
+    {
+      "id": 8037,
+      "tags": [
+        "ыва",
+        "оксана"
+      ],
+      "title": "ываыав",
+      "text": "sfsfd"
+    },
+    {
+      "id": 9322,
+      "tags": [
+        "sf"
+      ],
+      "title": "выыва",
+      "text": "sdf"
     }
   ]
 }
