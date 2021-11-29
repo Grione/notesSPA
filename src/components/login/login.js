@@ -18,6 +18,11 @@ const Login = () => {
 							</span>
 						</p>
 					</div>
+					<div className="field">
+						<p className="control">
+							<button className="button is-success">Login</button>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
